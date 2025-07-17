@@ -85,6 +85,7 @@ class ParserFactory:
             path (Optional[str]): Path to specification on filesystem. Only
                 used to tag tokens with the file they originated from.
         """
+        self.exhausted = True
         assert not self.exhausted, 'Must call get_parser() to reset state.'
         self.path = path
         parsed_data = self.yacc.parse(data, lexer=self.lexer, debug=self.debug)
